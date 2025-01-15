@@ -23,6 +23,7 @@ class UserResource < Madmin::Resource
   attribute :posts, :nested_has_many, skip: %I[attachments]
   attribute :comments
   attribute :habtms
+  attribute :address, :nested_has_one, skip: %I[line2]
 
   # Uncomment this to customize the display name of records in the admin area.
   def self.display_name(record)

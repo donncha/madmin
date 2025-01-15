@@ -10,6 +10,7 @@ namespace :madmin do
   resources :teams
   resources :users
   resources :comments
+  resources :addresses
   resources :posts do
     member do
       patch :draft

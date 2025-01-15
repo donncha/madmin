@@ -1,0 +1,16 @@
+<%= content_tag :div, class: "nested-fields border border-gray-200 rounded-lg p-5" do %>
+  <% field.nested_attributes.each do |name, nested_attribute| %>
+    <% nested_field = nested_attribute.field %>
+    <% next unless nested_field.visible?(action_name) %>
+    <% next unless nested_field.visible?(:form) %>
+
+    <div class="form-group">
+      <%= render "madmin/shared/label", form: f, field: nested_attribute.field %>
+      <%= render partial: nested_attribute.field.to_partial_path("form"), locals: { field: nested_attribute.field, record: f.object, form: f, resource: field.resource } %>
+    </div>
+  <% end %>
+
+  <small><%= link_to "Remove", "#", data: { action: "click->nested-form#remove_association" } %></small>
+
+  <%= f.hidden_field :_destroy %>
+<% end %>

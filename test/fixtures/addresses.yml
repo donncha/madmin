@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  line1: 21 Jump Street
+  city: Beverly Hills
+  state: CA
+  zip: 90210
+
+two:
+  user: two
+  line1: 1034 Audubon Dr
+  city: Memphis
+  state: TN
+  zip: 38117
