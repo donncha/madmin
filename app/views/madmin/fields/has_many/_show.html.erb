@@ -1,5 +1,13 @@
-<% field.value(record).each do |object| %>
-  <div>
-    <%= link_to Madmin.resource_for(object).display_name(object), Madmin.resource_for(object).show_path(object), class: "text-blue-500 underline" %>
-  </div>
+<% pagy, records = field.paginated_value(record, params) %>
+<% records.each do |object| %>
+  <% if (associated_resource = field.associated_resource_for(object)) %>
+    <div><%= link_to associated_resource.display_name(object), associated_resource.show_path(object) %></div>
+  <% else %>
+    <%= render partial: "missing_resource", locals: { resource_name: Madmin.resource_name_for(object) } %>
+  <% end %>
 <% end %>
+
+<div class="pagination">
+  <%== pagy_nav pagy if pagy.pages > 1 %>
+  <%== pagy_info pagy %>
+</div>

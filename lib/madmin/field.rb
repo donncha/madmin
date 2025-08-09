@@ -14,7 +14,7 @@ module Madmin
     end
 
     def value(record)
-      record.public_send(attribute_name)
+      record.try(attribute_name)
     end
 
     def to_partial_path(name)
@@ -51,6 +51,10 @@ module Madmin
     end
 
     def searchable?
+      false
+    end
+
+    def paginateable?
       false
     end
   end

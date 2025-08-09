@@ -1,28 +1,10 @@
-.alert {
-  border-radius: 0.25rem;
-  font-weight: 500;
-  padding: 1rem;
-  margin-bottom: 1rem;
-
-  ul {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-    padding-left: 2rem;
-  }
-
-  &.alert-danger {
-    background-color: rgb(254 226 226);
-    color: rgb(153 27 27);
-  }
+.error {
+  color: rgb(239 68 68);
 }
 
 .form-hint {
   font-size: 0.875rem;
   margin-top: 0.5rem;
-
-  &.error {
-    color: rgb(239 68 68);
-  }
 }
 
 .form-group {
@@ -44,7 +26,11 @@ label {
   font-size: 0.875rem;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
   font-family: inherit;
   font-feature-settings: inherit;
   font-variation-settings: inherit;
@@ -57,7 +43,22 @@ button, input, optgroup, select, textarea {
   padding: 0;
 }
 
-[type='text'], input:where(:not([type])), [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+[type='text'],
+input:where(:not([type])),
+[type='email'],
+[type='url'],
+[type='password'],
+[type='number'],
+[type='date'],
+[type='datetime-local'],
+[type='month'],
+[type='search'],
+[type='tel'],
+[type='time'],
+[type='week'],
+[multiple],
+textarea,
+select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -79,4 +80,11 @@ button, input, optgroup, select, textarea {
 .required {
   color: rgb(239 68 68);
   font-weight: 600;
+}
+
+.nested-fields {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
 }

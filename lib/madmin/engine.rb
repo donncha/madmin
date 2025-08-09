@@ -11,7 +11,7 @@ module Madmin
 
     config.to_prepare do
       Madmin.reset_resources!
-      Madmin.site_name ||= Rails.application.class.module_parent_name
+      Madmin.site_name ||= Rails.application.class.module_parent_name.titleize
     end
 
     initializer "madmin.assets" do |app|
@@ -19,6 +19,12 @@ module Madmin
         app.config.assets.paths << root.join("app/assets/stylesheets")
         app.config.assets.paths << root.join("app/javascript")
         app.config.assets.precompile += %w[madmin_manifest]
+
+        Madmin.stylesheets << if defined?(::Sprockets)
+          "madmin/application-sprockets"
+        else
+          "madmin/application"
+        end
       end
     end
 
