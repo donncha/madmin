@@ -1,5 +1,5 @@
 <div class="container space-y-8" data-controller="nested-form">
-  <template data-target="nested-form.template">
+  <template data-nested-form-target="template">
 
     <%= form.fields_for field.attribute_name, field.to_model.new, child_index: 'NEW_RECORD' do |nested_form| %>
       <%= render(
@@ -22,7 +22,7 @@
       ) %>
   <% end %>
 
-  <%= content_tag :div, class: '', data: { target:"nested-form.links" } do %>
+  <%= content_tag :div, class: '', data: { nested_form_target: "links" } do %>
     <%= link_to "+ Add new", "#",  data: { action: "click->nested-form#add_association" } %>
   <% end %>
 </div>

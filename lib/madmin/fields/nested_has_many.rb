@@ -23,7 +23,7 @@ module Madmin
       end
 
       def to_model
-        attribute_name.to_s.singularize.classify.constantize
+        options[:model] || attribute_name.to_s.singularize.classify.constantize
       end
 
       def paginateable?
