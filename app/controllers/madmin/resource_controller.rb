@@ -8,7 +8,7 @@ module Madmin
     before_action :set_paper_trail_whodunnit, if: -> { respond_to?(:set_paper_trail_whodunnit, true) }
 
     def index
-      @pagy, @records = pagy(scoped_resources)
+      @pagy, @records = pagy(scoped_resources, page: params[:page], limit: params[:limit])
 
       respond_to do |format|
         format.html
